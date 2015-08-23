@@ -25,16 +25,6 @@ require_once($CFG->libdir . "/externallib.php");
 class local_wstemplate_external extends external_api {
 
     /**
-     * Returns description of method parameters
-     * @return external_function_parameters
-     */
-    public static function hello_world_parameters() {
-        return new external_function_parameters(
-                array('welcomemessage' => new external_value(PARAM_TEXT, 'The welcome message. By default it is "Hello world,"', VALUE_DEFAULT, 'Hello world, '))
-        );
-    }
-
-    /**
      * Returns welcome message
      * @return string welcome message
      */
@@ -58,14 +48,6 @@ class local_wstemplate_external extends external_api {
         }
 
         return $params['welcomemessage'] . $USER->firstname . ' More!' ;
-    }
-
-    /**
-     * Returns description of method result value
-     * @return external_description
-     */
-    public static function hello_world_returns() {
-        return new external_value(PARAM_TEXT, 'The welcome message + user first name');
     }
 
 
