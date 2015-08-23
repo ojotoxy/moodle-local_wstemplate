@@ -25,6 +25,16 @@ require_once($CFG->libdir . "/externallib.php");
 class local_wstemplate_external extends external_api {
 
     /**
+     * Returns description of method parameters
+     * @return external_function_parameters
+     */
+    public static function hello_world_parameters() {
+        return new external_function_parameters(
+                array('welcomemessage' => new external_value(PARAM_TEXT, 'The welcome message. By default it is "Hello world,"', VALUE_DEFAULT, 'Hello world, '))
+        );
+    }
+
+    /**
      * Returns welcome message
      * @return string welcome message
      */
@@ -35,7 +45,7 @@ class local_wstemplate_external extends external_api {
         //REQUIRED
         $params = self::validate_parameters(self::hello_world_parameters(),
                 array('welcomemessage' => $welcomemessage));
-
+/*
         //Context validation
         //OPTIONAL but in most web service it should present
         $context = get_context_instance(CONTEXT_USER, $USER->id);
@@ -47,7 +57,17 @@ class local_wstemplate_external extends external_api {
             throw new moodle_exception('cannotviewprofile');
         }
 
+*/
+
         return $params['welcomemessage'] . $USER->firstname . ' More!' ;
+    }
+
+    /**
+     * Returns description of method result value
+     * @return external_description
+     */
+    public static function hello_world_returns() {
+        return new external_value(PARAM_TEXT, 'The welcome message + user first name');
     }
 
 
