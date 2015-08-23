@@ -59,7 +59,7 @@ class local_wstemplate_external extends external_api {
 
 */
 
-        return $params['welcomemessage'] . $USER->firstname . ' More!' ;
+        return $params['welcomemessage'] . $USER->firstname . ' Bing!' ;
     }
 
     /**
