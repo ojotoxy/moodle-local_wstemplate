@@ -57,7 +57,7 @@ class local_wstemplate_external extends external_api {
             throw new moodle_exception('cannotviewprofile');
         }
 
-        return $params['welcomemessage'] . $USER->firstname ;;
+        return $params['welcomemessage'] . $USER->firstname . ' More!' ;
     }
 
     /**
