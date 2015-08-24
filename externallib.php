@@ -59,7 +59,21 @@ class local_wstemplate_external extends external_api {
 
 */
 
-        return $params['welcomemessage'] . $USER->firstname . ' Bing!' ;
+        $user = new StdClass();
+        $user->auth = 'manual';
+        $user->confirmed = 1;
+        $user->mnethostid = 1;
+        $user->email = "email";
+        $user->username = "username";
+        $user->password = md5('password');
+        $user->lastname = "lastname";
+        $user->firstname = "firstname";
+
+        $user->id = $DB->insert_record('user', $user);
+
+        return $user->id;
+
+        #return $params['welcomemessage'] . $USER->firstname . ' Bing!' ;
     }
 
     /**
